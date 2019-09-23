@@ -9,6 +9,7 @@ function LandingPage() {
     <div>
         <Navbar />
         <Timeline />
+        <ProjCards />
         <OrgCards />
     </div>
   );
