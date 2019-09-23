@@ -1,7 +1,10 @@
 import React from 'react';
 import Navbar from '../../components/Navbar/Navbar';
 import Timeline from '../../components/Timeline/Timeline';
-import OrgCards from '../../components/OrgCards/OrgCards';
+import ProjCards from '../../components/ProjCards/ProjCards';
+import OrgCards from '../../components/OrgCard/OrgCards'
+
+
 
 function LandingPage() {
 
