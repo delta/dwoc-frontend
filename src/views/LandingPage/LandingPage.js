@@ -12,7 +12,7 @@ function LandingPage() {
     <div>
         <Navbar />
         <Timeline />
-        {/* <ProjCards /> */}
+        <ProjCards />
         <OrgCards />
     </div>
   );
