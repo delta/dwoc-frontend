@@ -11,15 +11,13 @@ import { useQuery } from "graphql-hooks";
 
 const ORG_QUERY = orgID => `query{
   organization (where:{ id: "${orgID}" }){
-   orgName
+    orgName
     orgDesc
-    
-  }
-}`;
+      }
+    }`;
 
 const useStyles = makeStyles({
   card: {
-    // maxWidth: 345;
     height: '100%'
 
   },
@@ -44,7 +42,7 @@ function OrgCard({ id }) {
     variables: {}
   });
   if (loading) {
-    return <>Loading...</>;
+    return <>.'.'.".'.'."...</>;
   }
   if (error) {
     console.log(JSON.stringify(error) + "<== error");
@@ -79,36 +77,6 @@ function OrgCard({ id }) {
       </Grid>
   );
 
-  // const classes = useStyles();
-  // console.log(`${orgID} <= orgID`);
-  // return (
-  //   <Card className={classes.card}>
-  //     <CardContent>
-  //       <Typography className={classes.title} variant="h5" component="h2">
-  //         orgTitle
-  //       </Typography>
-  //       <Typography
-  //         className={classes.description}
-  //         variant="body2"
-  //         color="textSecondary"
-  //         component="p"
-  //       >
-  //         Org Org Org Org Description Description Description Description
-  //       </Typography>
-  //       <Typography className={classes.nProejct} color="textSecondary">
-  //         This Org has 5 projects
-  //       </Typography>
-  //     </CardContent>
-
-  //     <CardActions>
-  //       {/* <Link to={`/${orgID}`}> */}
-  //       <Button size="small" color="primary" variant="outlined">
-  //         View projects
-  //       </Button>
-  //       {/* </Link> */}
-  //     </CardActions>
-  //   </Card>
-  // );
 }
 
 export default OrgCard;

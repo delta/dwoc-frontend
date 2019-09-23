@@ -12,7 +12,7 @@ const ORGANIZATIONS_QUERY = `query{
 
 const useStyles = makeStyles({
     root: {
-        alignItems: 'stretch'
+      padding: '6px'
     }
 })
 
