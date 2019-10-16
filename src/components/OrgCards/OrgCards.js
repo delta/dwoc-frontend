@@ -26,7 +26,7 @@ WebFont.load({
 
 const useStyles = makeStyles(theme => ({
   gridContainer: {
-    padding: '4px'
+    padding: '11px'
   },
   header2: header2,
   header3: header3,
@@ -40,7 +40,6 @@ const override = css`
 `;
 
 export default function OrgCards() {
-
   const classes = useStyles();
 
   return (

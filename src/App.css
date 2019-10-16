@@ -18,10 +18,9 @@
   border-radius: 50%;
 }
 
-.vertical-timeline ::before {
-  border-radius: 555px;
+.vertical-timeline-element-icon {
+  box-shadow: none !important;
 }
-
 /* 
 Website color theme - Don't delete
 #05386B

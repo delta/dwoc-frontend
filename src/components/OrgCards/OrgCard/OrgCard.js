@@ -14,6 +14,7 @@ const useStyles = makeStyles(theme => ({
   card: {
     backgroundColor: '#EDF5E1',
     color: '#05386B',
+    position: 'relative',
     marginTop: '30px',
     height: '100%'
   },
@@ -33,7 +34,9 @@ const useStyles = makeStyles(theme => ({
     color: '#05386B'
   },
   cardActions: {
-    paddingTop: '0px'
+    //paddingTop: '0px',
+    position: 'absolute',
+    bottom: ' 0'
   }
 }));
 
