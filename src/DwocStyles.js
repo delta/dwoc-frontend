@@ -31,7 +31,6 @@ const header2 = {
   //fontFamily: 'Roboto Mono',
   // fontFamily: 'Poppins',
   fontFamily: 'Fira Sans',
-
   fontWeight: 700
 };
 
@@ -49,7 +48,7 @@ const paragraph = {
 };
 
 const section = {
-  minHeight: screenHeight // i.e. 80% of screen height
+  minHeight: screenHeight
 };
 
 const about = {

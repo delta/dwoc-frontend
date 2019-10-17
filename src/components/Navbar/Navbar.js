@@ -13,12 +13,11 @@ import SnowStorm from 'react-snowstorm';
 
 const minWidth = 550;
 
-
 const useStyles = makeStyles(theme => ({
   title: { ...theme.typography.h6 },
   button: {
     marginLeft: `auto`,
-    paddingTop: "11px"
+    paddingTop: '11px'
   },
 
   githubBtn: {
@@ -33,7 +32,7 @@ const useStyles = makeStyles(theme => ({
     ...theme.mixins.toolbar
   },
   navbar: {
-    backgroundImage: "linear-gradient(to right, #000f29, #5CDB95)",
+    backgroundImage: 'linear-gradient(to right, #000f29, #5CDB95)',
     color: '#05386B'
   }
 }));
@@ -43,7 +42,7 @@ export default function Navbar(props) {
   const [open, setOpen] = useState(false);
   const [drawerWidth, setDrawerWidth] = useState(0);
   const [width, setWidth] = useState(window.innerWidth);
-  
+
   window.onresize = evt => {
     const innerWidth = window.innerWidth;
     if (innerWidth < minWidth || (innerWidth > minWidth && width < minWidth))
@@ -60,32 +59,33 @@ export default function Navbar(props) {
 
   useEffect(() => {
     // Update the document title using the browser API
-    console.log("toggle");
-    console.log(props.isLogged, "isLogged");
-    
-    if(props.isLogged){
+    console.log('toggle');
+    console.log(props.isLogged, 'isLogged');
+
+    if (props.isLogged) {
       setTabs([
         { name: 'Timeline', link: 'http://localhost:3000#timeline' },
         { name: 'Organizations', link: 'http://localhost:3000#orgs' },
         { name: 'Logout', link: 'https://delta.nitt.edu/dwocb/logout' }
       ]);
-    }
-    else{
+    } else {
       setTabs([
         { name: 'Timeline', link: 'http://localhost:3000#timeline' },
         { name: 'Organizations', link: 'http://localhost:3000#orgs' },
-        { name: 'Login with Github', link: 'https://delta.nitt.edu/dwocb/login' }
+        {
+          name: 'Login with Github',
+          link: 'https://delta.nitt.edu/dwocb/login'
+        }
       ]);
     }
-
   }, [props.isLogged]);
-  
+
   const handleToggle = evt => {
     setOpen(prevState => !prevState);
     open ? setDrawerWidth(0) : setDrawerWidth(200);
   };
   const handleClick = (evt, tabName) => {
-    console.log(tabName);
+    console.log(`${tabName} <= tabName`);
   };
 
   // TODO make it look good on mobile devices
@@ -97,22 +97,23 @@ export default function Navbar(props) {
       }}
     >
       <a href="https://delta.nitt.edu/">
-        <img
-          alt="delta-logo"
-          width="222px"
-          src={dwocLogo}
-        />
+        <img alt="delta-logo" width="222px" src={dwocLogo} />
       </a>
     </div>
   );
 
-
   let navbarElems = (
     <div>
       {width < minWidth && (
-        <Toolbar style={{ color: "#5CDB95" }}>
+        <Toolbar style={{ color: '#5CDB95' }}>
           <SnowStorm />
-          <div style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              width: '100%'
+            }}
+          >
             <div className={styles.drawerHeader}>
               <Sidebar open={open} drawerWidth={drawerWidth} tabs={tabs} />
               <MenuIcon onClick={handleToggle} />
@@ -120,29 +121,25 @@ export default function Navbar(props) {
             {deltaLogo}
           </div>
         </Toolbar>
-
       )}
 
+      {width > minWidth && (
+        <Toolbar>
+          {deltaLogo}
+          <div className={styles.button}>
+            {tabs.map((tab, index) => (
+              <Button
+                color="inherit"
+                className={styles.button}
+                onClick={handleClick}
+                key={index}
+                href={tab.link}
+              >
+                <ListItemText primary={tab.name} />
+              </Button>
+            ))}
+          </div>
 
-          {width > minWidth && (
-            <Toolbar>
-              {deltaLogo}
-            <div className={styles.button}>
-              {tabs.map((tab, index) => (
-                <Button
-                  color="inherit"
-                  className={styles.button}
-                  onClick={handleClick}
-                  key={index}
-                  href={tab.link}
-                >
-                  <ListItemText primary={tab.name} />
-                </Button>
-              ))}
-              
-
-            </div>
-          
           {width < minWidth && (
             <div className={styles.button}>
               {tabs.map((tab, index) => (
@@ -151,6 +148,7 @@ export default function Navbar(props) {
                   className={styles.button}
                   onClick={handleClick}
                   key={index}
+                  //href={tab.link}
                 >
                   <ListItemText primary={tab.name} />
                 </Button>
@@ -159,7 +157,6 @@ export default function Navbar(props) {
           )}
         </Toolbar>
       )}
-
     </div>
   );
 

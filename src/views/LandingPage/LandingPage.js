@@ -45,10 +45,9 @@ function LandingPage() {
   const classes = useStyles();
   return (
     <div>
-
       <Reveal>
         <Pulse>
-          <div className={classes.section} >
+          <div className={classes.section}>
             <img
               alt="dwocLogo"
               className={classes.landingImg}
@@ -59,6 +58,7 @@ function LandingPage() {
                 position: 'absolute',
                 left: `25%`,
                 top: `${0.5 * screenHeight - 0.5 * screenWidth * 0.296875}px`,
+                //top: `${0.5 * screenHeight}px`,
                 margin: 'auto',
                 transform: 'translateY(-50%, -50%)'
               }}
@@ -68,19 +68,20 @@ function LandingPage() {
       </Reveal>
       <Reveal>
         <Pulse>
-          <div
-            id="about"
-            className={classes.about}
-          >
+          <div id="about" className={classes.about}>
             <h2 className={classes.header2}>About</h2>
             <p className={classes.paragraph}>
-              This is a winter long program organised by <a href="https://delta.nitt.edu" style={{ color: "#008000" }}>Delta Force</a>, the coding
-              club of NIT Trichy. With an aim to support and improve the culture of open source
-              software around us, this serves as a platform for young student developers(or even starters) to hone their technical skills by taking up 
-              projects of their interests. We hope this 
-              encourages collabrative experiences and
-              allows students from all backgrounds to contribute to quality technical
-              projects from diverse fields.
+              This is a winter long program organised by{' '}
+              <a href="https://delta.nitt.edu" style={{ color: '#008000' }}>
+                Delta Force
+              </a>
+              , the coding club of NIT Trichy. With an aim to support and
+              improve the culture of open source software around us, this serves
+              as a platform for young student developers(or even starters) to
+              hone their technical skills by taking up projects of their
+              interests. We hope this encourages collabrative experiences and
+              allows students from all backgrounds to contribute to quality
+              technical projects from diverse fields.
             </p>
           </div>
         </Pulse>
@@ -91,7 +92,7 @@ function LandingPage() {
       <Reveal>
         <OrgCards />
       </Reveal>
-    </div >
+    </div>
   );
 }
 

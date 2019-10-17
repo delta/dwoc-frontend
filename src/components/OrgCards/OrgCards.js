@@ -69,7 +69,7 @@ export default function OrgCards() {
           );
         }
         return (
-          <div className={classes.orgs}>
+          <div className={classes.orgs} id="orgs">
             <h2 className={classes.header2}>Organizations</h2>
             <Grid container className={classes.gridContainer} spacing={1}>
               {props.organizations.map(org => (
