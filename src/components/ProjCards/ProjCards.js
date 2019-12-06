@@ -196,7 +196,24 @@ export default function Projects(props) {
               </div>
             );
           return (
-            <><div style={{ paddingLeft: '50px', paddingRight: '50px' }}>
+            <>
+            {(role.toLowerCase() === 'mentor')&& console.log("neworgid="+orgID) ||
+                  <Button variant="contained" className={classes.button} >
+                    <Link
+                       to={{
+                        pathname: '/proposal',
+                        data: {
+                        projSlug: props.projSlug,
+                        orgName: orgID
+                       }
+                      }}
+                    >
+                  View Proposal
+                  </Link>
+                  <br />
+                  </Button>
+              }
+            <div style={{ paddingLeft: '50px', paddingRight: '50px' }}>
               <Grid container className={classes.gridContainer} spacing={3}>
                 {props.projects.map(project => (
                   <ProjCard

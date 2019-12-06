@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash c7ba92ae8ac7ad129f34cc5412684536
+ * @relayHash 4a3a8c96d3267405ab30567dcff781f6
  */
 
 /* eslint-disable */
@@ -50,13 +50,16 @@ export type ProposalTableQueryVariables = {|
 export type ProposalTableQueryResponse = {|
   +proposals: $ReadOnlyArray<?{|
     +id: string,
-    +propUrl: string,
     +user: {|
       +id: string,
       +firstName: string,
-      +lastName: string,
       +githubHandle: string,
     |},
+    +organization: {|
+      +id: string
+    |},
+    +isAccepted: boolean,
+    +propUrl: string,
   |}>
 |};
 export type ProposalTableQuery = {|
@@ -72,13 +75,16 @@ query ProposalTableQuery(
 ) {
   proposals(where: $cond) {
     id
-    propUrl
     user {
       id
       firstName
-      lastName
       githubHandle
     }
+    organization {
+      id
+    }
+    isAccepted
+    propUrl
   }
 }
 */
@@ -117,13 +123,6 @@ v2 = [
     "selections": [
       (v1/*: any*/),
       {
-        "kind": "ScalarField",
-        "alias": null,
-        "name": "propUrl",
-        "args": null,
-        "storageKey": null
-      },
-      {
         "kind": "LinkedField",
         "alias": null,
         "name": "user",
@@ -143,18 +142,37 @@ v2 = [
           {
             "kind": "ScalarField",
             "alias": null,
-            "name": "lastName",
-            "args": null,
-            "storageKey": null
-          },
-          {
-            "kind": "ScalarField",
-            "alias": null,
             "name": "githubHandle",
             "args": null,
             "storageKey": null
           }
         ]
+      },
+      {
+        "kind": "LinkedField",
+        "alias": null,
+        "name": "organization",
+        "storageKey": null,
+        "args": null,
+        "concreteType": "Organization",
+        "plural": false,
+        "selections": [
+          (v1/*: any*/)
+        ]
+      },
+      {
+        "kind": "ScalarField",
+        "alias": null,
+        "name": "isAccepted",
+        "args": null,
+        "storageKey": null
+      },
+      {
+        "kind": "ScalarField",
+        "alias": null,
+        "name": "propUrl",
+        "args": null,
+        "storageKey": null
       }
     ]
   }
@@ -179,11 +197,11 @@ return {
     "operationKind": "query",
     "name": "ProposalTableQuery",
     "id": null,
-    "text": "query ProposalTableQuery(\n  $cond: ProposalWhereInput\n) {\n  proposals(where: $cond) {\n    id\n    propUrl\n    user {\n      id\n      firstName\n      lastName\n      githubHandle\n    }\n  }\n}\n",
+    "text": "query ProposalTableQuery(\n  $cond: ProposalWhereInput\n) {\n  proposals(where: $cond) {\n    id\n    user {\n      id\n      firstName\n      githubHandle\n    }\n    organization {\n      id\n    }\n    isAccepted\n    propUrl\n  }\n}\n",
     "metadata": {}
   }
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = 'a512c48efd6c5893cb44a841dc25e704';
+(node/*: any*/).hash = 'b54ba3d284f7aede0cd0aeabcee1efc8';
 module.exports = node;

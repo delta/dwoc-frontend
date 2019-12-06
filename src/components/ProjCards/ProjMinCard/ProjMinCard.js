@@ -118,7 +118,7 @@ export default function ProjMinCard(props) {
             isLogged={props.isLogged}
             {...props}
           />
-          {props && props.role == "Mentor" &&
+          {/*props && props.role == "Mentor" &&
             <Button variant="contained" className={classes.button}>
               <Link
                 to={{
@@ -132,7 +132,7 @@ export default function ProjMinCard(props) {
             </Link>
 
             </Button>
-          }
+              */}
         </CardActions>
       </Card>
     </Grid>
