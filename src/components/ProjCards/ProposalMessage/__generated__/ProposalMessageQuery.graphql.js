@@ -3,71 +3,8 @@
  * @relayHash f9ebdf944e3dff6e5c105c263600d10c
  */
 
-/* eslint-disable */
-
 'use strict';
 
-/*::
-import type { ConcreteRequest } from 'relay-runtime';
-export type roles = "Admin" | "Dev" | "Mentor" | "%future added value";
-export type ProposalWhereInput = {|
-  id?: ?string,
-  user?: ?UserWhereInput,
-  project?: ?ProjectWhereInput,
-  isAccepted?: ?boolean,
-  propUrl?: ?string,
-|};
-export type UserWhereInput = {|
-  id?: ?string,
-  firstName?: ?string,
-  lastName?: ?string,
-  role?: ?roles,
-  email?: ?string,
-  mobileNumber?: ?string,
-  githubHandle?: ?string,
-  password?: ?string,
-  isVerified?: ?boolean,
-  session?: ?string,
-|};
-export type ProjectWhereInput = {|
-  id?: ?string,
-  organization?: ?OrganizationWhereInput,
-  projName?: ?string,
-  projSlug?: ?string,
-  projDesc?: ?string,
-  githubUrl?: ?string,
-|};
-export type OrganizationWhereInput = {|
-  id?: ?string,
-  orgName?: ?string,
-  orgSlug?: ?string,
-  orgDesc?: ?string,
-  githubUrl?: ?string,
-|};
-export type ProposalMessageQueryVariables = {|
-  userId?: ?ProposalWhereInput
-|};
-export type ProposalMessageQueryResponse = {|
-  +userProposals: $ReadOnlyArray<?{|
-    +id: string
-  |}>
-|};
-export type ProposalMessageQuery = {|
-  variables: ProposalMessageQueryVariables,
-  response: ProposalMessageQueryResponse,
-|};
-*/
-
-
-/*
-query ProposalMessageQuery(
-  $userId: ProposalWhereInput
-) {
-  userProposals(where: $userId) {
-    id
-  }
-}
-*/
 
 const node/*: ConcreteRequest*/ = (function(){
 var v0 = [
