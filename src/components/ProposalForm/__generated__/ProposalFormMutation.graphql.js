@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 9afd4ed510bbe177e68616ab84667b7a
+ * @relayHash d2c8bf11f4268ac000e4384bc7f0c91b
  */
 
 /* eslint-disable */
@@ -32,6 +32,7 @@ mutation ProposalFormMutation(
   uploadFile(data: $file) {
     fileName
     filePath
+    id
   }
 }
 */
@@ -47,37 +48,25 @@ var v0 = [
 ],
 v1 = [
   {
-    "kind": "LinkedField",
-    "alias": null,
-    "name": "uploadFile",
-    "storageKey": null,
-    "args": [
-      {
-        "kind": "Variable",
-        "name": "data",
-        "variableName": "file"
-      }
-    ],
-    "concreteType": "File",
-    "plural": false,
-    "selections": [
-      {
-        "kind": "ScalarField",
-        "alias": null,
-        "name": "fileName",
-        "args": null,
-        "storageKey": null
-      },
-      {
-        "kind": "ScalarField",
-        "alias": null,
-        "name": "filePath",
-        "args": null,
-        "storageKey": null
-      }
-    ]
+    "kind": "Variable",
+    "name": "data",
+    "variableName": "file"
   }
-];
+],
+v2 = {
+  "kind": "ScalarField",
+  "alias": null,
+  "name": "fileName",
+  "args": null,
+  "storageKey": null
+},
+v3 = {
+  "kind": "ScalarField",
+  "alias": null,
+  "name": "filePath",
+  "args": null,
+  "storageKey": null
+};
 return {
   "kind": "Request",
   "fragment": {
@@ -86,19 +75,54 @@ return {
     "type": "Mutation",
     "metadata": null,
     "argumentDefinitions": (v0/*: any*/),
-    "selections": (v1/*: any*/)
+    "selections": [
+      {
+        "kind": "LinkedField",
+        "alias": null,
+        "name": "uploadFile",
+        "storageKey": null,
+        "args": (v1/*: any*/),
+        "concreteType": "File",
+        "plural": false,
+        "selections": [
+          (v2/*: any*/),
+          (v3/*: any*/)
+        ]
+      }
+    ]
   },
   "operation": {
     "kind": "Operation",
     "name": "ProposalFormMutation",
     "argumentDefinitions": (v0/*: any*/),
-    "selections": (v1/*: any*/)
+    "selections": [
+      {
+        "kind": "LinkedField",
+        "alias": null,
+        "name": "uploadFile",
+        "storageKey": null,
+        "args": (v1/*: any*/),
+        "concreteType": "File",
+        "plural": false,
+        "selections": [
+          (v2/*: any*/),
+          (v3/*: any*/),
+          {
+            "kind": "ScalarField",
+            "alias": null,
+            "name": "id",
+            "args": null,
+            "storageKey": null
+          }
+        ]
+      }
+    ]
   },
   "params": {
     "operationKind": "mutation",
     "name": "ProposalFormMutation",
     "id": null,
-    "text": "mutation ProposalFormMutation(\n  $file: Upload!\n) {\n  uploadFile(data: $file) {\n    fileName\n    filePath\n  }\n}\n",
+    "text": "mutation ProposalFormMutation(\n  $file: Upload!\n) {\n  uploadFile(data: $file) {\n    fileName\n    filePath\n    id\n  }\n}\n",
     "metadata": {}
   }
 };

@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash bf1ce25160d6a0c07f853c613ab63ab4
+ * @relayHash 260b54bb2ae6deb2f26194e403a46552
  */
 
 /* eslint-disable */
@@ -13,9 +13,10 @@ export type roles = "Admin" | "Dev" | "Mentor" | "%future added value";
 export type ProposalWhereInput = {|
   id?: ?string,
   user?: ?UserWhereInput,
-  project?: ?ProjectWhereInput,
+  organization?: ?OrganizationWhereInput,
   isAccepted?: ?boolean,
   propUrl?: ?string,
+  file?: ?FileWhereInput,
 |};
 export type UserWhereInput = {|
   id?: ?string,
@@ -28,27 +29,26 @@ export type UserWhereInput = {|
   password?: ?string,
   isVerified?: ?boolean,
   session?: ?string,
-|};
-export type ProjectWhereInput = {|
-  id?: ?string,
-  organization?: ?OrganizationWhereInput,
-  projName?: ?string,
-  projSlug?: ?string,
-  projDesc?: ?string,
-  githubUrl?: ?string,
+  profileImage?: ?string,
 |};
 export type OrganizationWhereInput = {|
   id?: ?string,
   orgName?: ?string,
   orgSlug?: ?string,
   orgDesc?: ?string,
+  orgMaxDesc?: ?string,
   githubUrl?: ?string,
+  communicationChannel?: ?string,
+|};
+export type FileWhereInput = {|
+  fileName?: ?string,
+  filePath?: ?string,
 |};
 export type ProposalMessageQueryVariables = {|
   userId?: ?ProposalWhereInput
 |};
 export type ProposalMessageQueryResponse = {|
-  +proposals: $ReadOnlyArray<?{|
+  +userProposals: $ReadOnlyArray<?{|
     +id: string
   |}>
 |};
@@ -63,7 +63,7 @@ export type ProposalMessageQuery = {|
 query ProposalMessageQuery(
   $userId: ProposalWhereInput
 ) {
-  proposals(where: $userId) {
+  userProposals(where: $userId) {
     id
   }
 }
@@ -82,7 +82,7 @@ v1 = [
   {
     "kind": "LinkedField",
     "alias": null,
-    "name": "proposals",
+    "name": "userProposals",
     "storageKey": null,
     "args": [
       {
@@ -124,11 +124,11 @@ return {
     "operationKind": "query",
     "name": "ProposalMessageQuery",
     "id": null,
-    "text": "query ProposalMessageQuery(\n  $userId: ProposalWhereInput\n) {\n  proposals(where: $userId) {\n    id\n  }\n}\n",
+    "text": "query ProposalMessageQuery(\n  $userId: ProposalWhereInput\n) {\n  userProposals(where: $userId) {\n    id\n  }\n}\n",
     "metadata": {}
   }
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = '9d25f7d2b42aba59c7863e67f85e637a';
+(node/*: any*/).hash = 'f51e7976119337b8a851d6d435ffb877';
 module.exports = node;

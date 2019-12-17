@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 6b973052680c1bdf42b328cdc80aaa88
+ * @relayHash 5a5ce56dfbbe39b485282142e0a9ba91
  */
 
 /* eslint-disable */
@@ -9,12 +9,15 @@
 
 /*::
 import type { ConcreteRequest } from 'relay-runtime';
+export type roles = "Admin" | "Dev" | "Mentor" | "%future added value";
 export type ProposalCreateInput = {|
   id?: ?string,
+  user: UserCreateOneInput,
+  organization: OrganizationCreateOneInput,
   isAccepted?: ?boolean,
   propUrl: string,
-  user: UserCreateOneInput,
-  project: ProjectCreateOneInput,
+  propDesc: string,
+  mentor: MentorWhereInput,
 |};
 export type UserCreateOneInput = {|
   connect?: ?UserWhereUniqueInput
@@ -25,19 +28,6 @@ export type UserWhereUniqueInput = {|
   mobileNumber?: ?string,
   githubHandle?: ?string,
 |};
-export type ProjectCreateOneInput = {|
-  create?: ?ProjectCreateInput,
-  connect?: ?ProjectWhereUniqueInput,
-|};
-export type ProjectCreateInput = {|
-  id?: ?string,
-  organization: OrganizationCreateOneInput,
-  projName: string,
-  projSlug: string,
-  projDesc?: ?string,
-  githubUrl?: ?string,
-  projMinDesc?: ?string,
-|};
 export type OrganizationCreateOneInput = {|
   create?: ?OrganizationCreateInput,
   connect?: ?OrganizationWhereUniqueInput,
@@ -47,17 +37,46 @@ export type OrganizationCreateInput = {|
   orgName: string,
   orgSlug: string,
   orgDesc?: ?string,
+  orgMaxDesc?: ?string,
   githubUrl?: ?string,
+  stack?: ?OrganizationCreatestackInput,
+  contactUrl?: ?string,
+  communicationChannel?: ?string,
+|};
+export type OrganizationCreatestackInput = {|
+  set?: ?$ReadOnlyArray<string>
 |};
 export type OrganizationWhereUniqueInput = {|
   id?: ?string,
   orgSlug?: ?string,
   githubUrl?: ?string,
 |};
-export type ProjectWhereUniqueInput = {|
+export type MentorWhereInput = {|
   id?: ?string,
-  projSlug?: ?string,
-  organization?: ?OrganizationWhereUniqueInput,
+  user?: ?UserWhereInput,
+  organization?: ?OrganizationWhereInput,
+|};
+export type UserWhereInput = {|
+  id?: ?string,
+  firstName?: ?string,
+  lastName?: ?string,
+  role?: ?roles,
+  email?: ?string,
+  mobileNumber?: ?string,
+  githubHandle?: ?string,
+  password?: ?string,
+  isVerified?: ?boolean,
+  session?: ?string,
+  profileImage?: ?string,
+|};
+export type OrganizationWhereInput = {|
+  id?: ?string,
+  orgName?: ?string,
+  orgSlug?: ?string,
+  orgDesc?: ?string,
+  orgMaxDesc?: ?string,
+  githubUrl?: ?string,
+  communicationChannel?: ?string,
 |};
 export type MutationRendererMutationVariables = {|
   proposal: ProposalCreateInput

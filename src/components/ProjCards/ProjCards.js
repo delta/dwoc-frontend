@@ -20,6 +20,7 @@ import Form from "./AddProjectForm/Form";
 import { header1, header2, gridContainer } from "../../DwocStyles";
 
 import MentorTags from "../../components/MentorTags/MentorTags";
+import SelectedProjCards from "../SelectedProjCards/SelectedProjCards";
 const environment = require("../../Environment").environment;
 
 WebFont.load({
@@ -248,6 +249,8 @@ export default function Projects(props) {
                 </Grid>
               </div>
               <ProposalMessage canApply={applyFn} userId={userId} />
+
+              <SelectedProjCards orgSlug={orgSlug}/>
               <br />
               {applyBtnDiv}
 
