@@ -121,7 +121,7 @@ function LandingPage(props) {
 				</div>
 			</Reveal>
 
-			{/* <Reveal>{timeline}</Reveal> */}
+			<Reveal>{timeline}</Reveal>
 			{/* <Pulse>
 				<OrgCards role={role} />
 			</Pulse> */}
