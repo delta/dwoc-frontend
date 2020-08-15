@@ -60,8 +60,9 @@ export default function HorizontalNonLinearAlternativeLabelStepper(props) {
   return (
     <div className={classes.timeline} style={{width: props.width}}>
     <div style={{ paddingTop: "60px" }} id="timeline">
-      <h2 className={classes.header2}>Timeline </h2>
-      <VerticalTimeline>
+      {/* <h2 className={classes.header2}>Timeline </h2> */}
+      <h2 className={classes.header2}>Coming Soon! </h2>
+      {/* <VerticalTimeline> */}
       <QueryRenderer
         environment={environment}
         query={graphql`
@@ -77,7 +78,7 @@ export default function HorizontalNonLinearAlternativeLabelStepper(props) {
         render={({ error, props }) => {
           if (error) {
             console.log(`${error} <= error Relay OrgCards`);
-            return <div>Error!</div>;
+            // return <div>Error!</div>;
           }
           if(props && props.events){
 
@@ -108,7 +109,7 @@ export default function HorizontalNonLinearAlternativeLabelStepper(props) {
 
         }}
       />
-      </VerticalTimeline>
+      {/* </VerticalTimeline> */}
       <div style={{ height: "20px" }}></div>
     </div>
     </div>

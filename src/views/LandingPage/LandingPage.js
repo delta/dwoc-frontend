@@ -122,10 +122,10 @@ function LandingPage(props) {
 			</Reveal>
 
 			<Reveal>{timeline}</Reveal>
-			<Pulse>
+			{/* <Pulse>
 				<OrgCards role={role} />
-			</Pulse>
-			<br />
+			</Pulse> */}
+			{/* <br />
 			<Reveal>
 				<div id="help" className={classes.help}>
 					<Flip left>
@@ -162,7 +162,7 @@ function LandingPage(props) {
 						<br />
 					</div>
 				</div>
-			</Reveal>
+			</Reveal> */}
 			<Footer />
 		</div>
 	);

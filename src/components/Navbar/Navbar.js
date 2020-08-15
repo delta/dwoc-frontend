@@ -66,8 +66,10 @@ const nav = function Navbar(props) {
 
   if (props.showBtns) defaultBtns = [
     { name: "Timeline", to: "timeline" },
-    { name: "Organizations", to: "orgs" },
-    { name: "Help", to: "help" }
+    { name: "Organizations", to: "timeline" },
+    // { name: "Organizations", to: "orgs" },
+    { name: "Help", to: "timeline" },
+    // { name: "Help", to: "help" }
   ];
 
   let [tabs, setTabs] = useState({
